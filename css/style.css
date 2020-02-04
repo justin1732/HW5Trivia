@@ -1,5 +1,5 @@
 .jumbotron {
-    background-image: url(https://fortniteinsider.com/wp-content/uploads/2019/12/Fortnite-Lightsaber-1.jpg);
+    background-image: url(/sky.jpg);
     background-size: cover;    
   }
   
@@ -11,4 +11,9 @@
   
   .instructions {
     text-align: center; 
+  }
+
+  .subwrapper {
+      background-image: url(/ground.png);
+      background-size: cover;
   }
