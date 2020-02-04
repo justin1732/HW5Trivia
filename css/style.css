@@ -13,7 +13,7 @@
     text-align: center; 
   }
 
-  .subwrapper {
-      background-image: url(/ground.png);
+  #subwrapper {
+      background-image: url(/images/ground.png);
       background-size: cover;
   }
