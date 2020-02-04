@@ -4,6 +4,11 @@ $('#start').on('click', function(){
 //Time to load the answers...
 TriviaTime.loadQuestion();
 })
+
+//More clicking to get the next questions loaded
+$(document).on ('click', ".answer-button", function(event){
+    TriviaTime.clicked(event);
+})
 //Question Loop
 var questions = [{
     question: "Who is the hero of the first Star Ocean Video game?",
@@ -50,7 +55,9 @@ var TriviaTime= {
         timer= setInterval(TriviaTime.countdown, 1000);
         $('#subwrapper').html('<h2>'+questions[TriviaTime.currentQuestion].question+'</h2>');
         for (var i=0;i<questions[TriviaTime.currentQuestion].answers.length;i++){
-            $('#subwrapper').append('<button class = "answer-button" id= "button-'+i+'" data-name="'+questions[TriviaTime.currentQuestion].answers[i]+'">'+questions[TriviaTime.currentQuestion].answers[i]+'</button>');
+            $('#subwrapper').append('<button class = "answer-button" id= "button-'+i+'" data-name="'+
+            questions[TriviaTime.currentQuestion].answers[i]+'">'+questions[TriviaTime.currentQuestion].answers[i]+
+            '</button>');
         }
     },
     nextQuestion: function(){
@@ -66,14 +73,22 @@ var TriviaTime= {
     },
 
     clicked: function (){
+        clearInterval(timer);
+        if ($(event.target).data("name")==questions[TriviaTime.currentQuestion].correctAnswer){
+            TriviaTime.rightAnswer();
+        } else
+        {TriviaTime.wrongAnswer();
+        }
 
     },
 
     rightAnswer: function(){
+        console.log ("Excellent job, Ensign (right)!");
 
     },
 
     wrongAnswer: function(){
+        console.log ("You disappoint Captain Ronyx (wrong).");
 
     },
 
