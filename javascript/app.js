@@ -111,7 +111,7 @@ var TriviaTime= {
         }else {
             setTimeout(TriviaTime.nextQuestion, 3*1000);
         }
-
+       
     },
     wrongAnswer: function(){
         console.log ("You disappoint Captain Ronyx (wrong).");
